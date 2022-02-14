@@ -1,19 +1,26 @@
+import pathlib
+
 from tensorflow.keras import models
 import matplotlib.pyplot as plt
 import seaborn as sns
 import modelTraining
 import tensorflow as tf
+
 import numpy as np
-COMMANDS = ['down' 'forward' 'left' 'right' 'stop']
-MODEL = '.\\trainedModel\\enModel1.hdf5'
-model = models.load_model(MODEL)
+#COMMANDS = ['attack', 'left', 'pause', 'right', 'shoot', 'stop', 'unknown', 'up']
+data_dir = pathlib.Path('datasetExit/dataset/en')
 
+MODEL = '.\\trainedModel\\enModel.h5'
 
-def confusion_matrix():
-    test_ds = tf.data.experimental.load(
-        "./preparedDataSet/test_ds", element_spec=None, compression=None, reader_func=None
-    )
+#COMMANDS = get_commands(data_dir)
 
+def get_commands(path):
+    commands = np.array(tf.io.gfile.listdir(str(path)))
+    print('Commands:', commands)
+    return commands
+
+def confusion_matrix(test_ds, COMMANDS, MODEL):
+    model = models.load_model(MODEL)
     test_audio = []
     test_labels = []
 
@@ -34,16 +41,15 @@ def confusion_matrix():
     plt.figure(figsize=(10, 8))
     sns.heatmap(confusion_mtx, xticklabels=COMMANDS, yticklabels=COMMANDS,
                 annot=True, fmt='g')
-    plt.xlabel('Prediction')
-    plt.ylabel('Label')
+    plt.xlabel('Przewidziana komenda')
+    plt.ylabel('Komenda')
     plt.show()
 
 
 def main():
     global COMMANDS
-    COMMANDS = modelTraining.get_commands(modelTraining.data_dir)
 
-    confusion_matrix()
+    COMMANDS = modelTraining.get_commands(modelTraining.data_dir)
 
 
 if __name__ == '__main__':
