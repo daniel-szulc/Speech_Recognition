@@ -12,7 +12,7 @@ The project aims to detect single-word commands. It allows you to recognize keyw
 
 To start the speech recognition process, enter "ACTIVE_ON" on the console.
 
-Using a trained model, you can directly use the realtimeSpeechRecognition.py script to recognize the voice samples continuously.
+Using a trained model, you can directly use the <b>speechRecognition.py</b> script to recognize the voice samples continuously.
 Recognized samples must contain these trained words:
 
 for the English model:
