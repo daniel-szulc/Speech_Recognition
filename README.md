@@ -64,4 +64,20 @@ https://cloud.google.com/text-to-speech
 
 The prepared set of 2 437 audio files was divided into training, validation and test sets, using the ratio of 80:10:10, respectively.
 
+## Result
 
+Graphs from model learning processes are presented below:
+
+
+
+| <img src="/img/result_en.png"/> | <img src="/img/result_pl.png" /> |
+| ------------- | ------------- |
+| <div align="center">English model</div> | <div align="center">Polish model</div> |
+
+
+
+
+## Source
+
+The code was based on Simple audio recognition: Recognizing keywords from TensorFlow.
+https://www.tensorflow.org/tutorials/audio/simple_audio
