@@ -74,8 +74,8 @@ Graphs from model learning processes are presented below:
 | ------------- | ------------- |
 | <div align="center">English model</div> | <div align="center">Polish model</div> |
 
-
-
+For the English language, the learning process was completed during epoch 33, when the model achieved the lowest loss validation level of 0.2773 and a satisfactory accuracy level of 0.9350.
+In the case of the Polish language, a loss validation of 0.3171 and an accuracy of 0.9158 was achieved during the 56th epoch.
 
 ## Source
 
